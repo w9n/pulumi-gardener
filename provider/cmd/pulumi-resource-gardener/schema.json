@@ -1,0 +1,1681 @@
+{
+    "name": "gardener",
+    "description": "A Pulumi package for creating and managing gardener cloud resources.",
+    "keywords": [
+        "pulumi",
+        "gardener"
+    ],
+    "homepage": "https://pulumi.io",
+    "license": "Apache-2.0",
+    "attribution": "This Pulumi package is based on the [`gardener` Terraform Provider](https://github.com/terraform-providers/terraform-provider-gardener).",
+    "repository": "https://github.com/pulumi/pulumi-gardener",
+    "meta": {
+        "moduleFormat": "(.*)(?:/[^/]*)"
+    },
+    "config": {
+        "variables": {
+            "kubeFile": {
+                "type": "string"
+            }
+        },
+        "defaults": [
+            "kubeFile"
+        ]
+    },
+    "types": {
+        "gardener:index/gardener_shootMetadata:gardener_shootMetadata": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "generation": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "namespace": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceVersion": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "selfLink": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "uid": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "language": {
+                "nodejs": {
+                    "requiredOutputs": [
+                        "generation",
+                        "name",
+                        "resourceVersion",
+                        "selfLink",
+                        "uid"
+                    ]
+                }
+            }
+        },
+        "gardener:index/gardener_shootSpec:gardener_shootSpec": {
+            "properties": {
+                "addons": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecAddons:gardener_shootSpecAddons",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cloudProfileName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "dns": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecDns:gardener_shootSpecDns",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "hibernation": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecHibernation:gardener_shootSpecHibernation",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubernetes": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetes:gardener_shootSpecKubernetes",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maintenance": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecMaintenance:gardener_shootSpecMaintenance",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "monitoring": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecMonitoring:gardener_shootSpecMonitoring",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networkings": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecNetworking:gardener_shootSpecNetworking"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "providers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProvider:gardener_shootSpecProvider"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "purpose": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "region": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "secretBindingName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "seedName": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "cloudProfileName",
+                "kubernetes",
+                "networkings",
+                "providers",
+                "region",
+                "secretBindingName"
+            ]
+        },
+        "gardener:index/gardener_shootSpecAddons:gardener_shootSpecAddons": {
+            "properties": {
+                "kubernetesDashboard": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecAddonsKubernetesDashboard:gardener_shootSpecAddonsKubernetesDashboard",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "nginxIngress": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecAddonsNginxIngress:gardener_shootSpecAddonsNginxIngress",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecAddonsKubernetesDashboard:gardener_shootSpecAddonsKubernetesDashboard": {
+            "properties": {
+                "authenticationMode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
+        },
+        "gardener:index/gardener_shootSpecAddonsNginxIngress:gardener_shootSpecAddonsNginxIngress": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
+        },
+        "gardener:index/gardener_shootSpecDns:gardener_shootSpecDns": {
+            "properties": {
+                "domain": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecHibernation:gardener_shootSpecHibernation": {
+            "properties": {
+                "enabled": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "schedules": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecHibernationSchedule:gardener_shootSpecHibernationSchedule"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "enabled"
+            ]
+        },
+        "gardener:index/gardener_shootSpecHibernationSchedule:gardener_shootSpecHibernationSchedule": {
+            "properties": {
+                "end": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "location": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "start": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetes:gardener_shootSpecKubernetes": {
+            "properties": {
+                "allowPrivilegedContainers": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clusterAutoscaler": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesClusterAutoscaler:gardener_shootSpecKubernetesClusterAutoscaler",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubeApiServer": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeApiServer:gardener_shootSpecKubernetesKubeApiServer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubeControllerManager": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeControllerManager:gardener_shootSpecKubernetesKubeControllerManager",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubeProxy": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeProxy:gardener_shootSpecKubernetesKubeProxy",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubelet": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubelet:gardener_shootSpecKubernetesKubelet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "version": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "version"
+            ]
+        },
+        "gardener:index/gardener_shootSpecKubernetesClusterAutoscaler:gardener_shootSpecKubernetesClusterAutoscaler": {
+            "properties": {
+                "scaleDownDelayAfterAdd": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scaleDownDelayAfterDelete": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scaleDownDelayAfterFailure": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scaleDownUnneededTime": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scaleDownUtilizationThreshold": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "scanInterval": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeApiServer:gardener_shootSpecKubernetesKubeApiServer": {
+            "properties": {
+                "auditConfig": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeApiServerAuditConfig:gardener_shootSpecKubernetesKubeApiServerAuditConfig",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "enableBasicAuthentication": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "oidcConfig": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeApiServerOidcConfig:gardener_shootSpecKubernetesKubeApiServerOidcConfig",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeApiServerAuditConfig:gardener_shootSpecKubernetesKubeApiServerAuditConfig": {
+            "properties": {
+                "auditPolicy": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicy:gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicy",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicy:gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicy": {
+            "properties": {
+                "configMapRef": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicyConfigMapRef:gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicyConfigMapRef",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicyConfigMapRef:gardener_shootSpecKubernetesKubeApiServerAuditConfigAuditPolicyConfigMapRef": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeApiServerOidcConfig:gardener_shootSpecKubernetesKubeApiServerOidcConfig": {
+            "properties": {
+                "caBundle": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "clientId": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupsClaim": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "groupsPrefix": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "issuerUrl": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "requiredClaims": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "signingAlgs": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "usernameClaim": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "usernamePrefix": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeControllerManager:gardener_shootSpecKubernetesKubeControllerManager": {
+            "properties": {
+                "nodeCidrMaskSize": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubeProxy:gardener_shootSpecKubernetesKubeProxy": {
+            "properties": {
+                "mode": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecKubernetesKubelet:gardener_shootSpecKubernetesKubelet": {
+            "properties": {
+                "cpuCfsQuota": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cpuManagerPolicy": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "featureGates": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "podPidsLimit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecMaintenance:gardener_shootSpecMaintenance": {
+            "properties": {
+                "autoUpdate": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecMaintenanceAutoUpdate:gardener_shootSpecMaintenanceAutoUpdate",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "timeWindow": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecMaintenanceTimeWindow:gardener_shootSpecMaintenanceTimeWindow",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecMaintenanceAutoUpdate:gardener_shootSpecMaintenanceAutoUpdate": {
+            "properties": {
+                "kubernetesVersion": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "machineImageVersion": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecMaintenanceTimeWindow:gardener_shootSpecMaintenanceTimeWindow": {
+            "properties": {
+                "begin": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "end": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecMonitoring:gardener_shootSpecMonitoring": {
+            "properties": {
+                "alerting": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecMonitoringAlerting:gardener_shootSpecMonitoringAlerting",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecMonitoringAlerting:gardener_shootSpecMonitoringAlerting": {
+            "properties": {
+                "emailreceivers": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecNetworking:gardener_shootSpecNetworking": {
+            "properties": {
+                "nodes": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "pods": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "services": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProvider:gardener_shootSpecProvider": {
+            "properties": {
+                "controlPlaneConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderControlPlaneConfig:gardener_shootSpecProviderControlPlaneConfig"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "infrastructureConfigs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfig:gardener_shootSpecProviderInfrastructureConfig"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "workers": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorker:gardener_shootSpecProviderWorker"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type",
+                "workers"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderControlPlaneConfig:gardener_shootSpecProviderControlPlaneConfig": {
+            "properties": {
+                "gcp": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderControlPlaneConfigGcp:gardener_shootSpecProviderControlPlaneConfigGcp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderControlPlaneConfigGcp:gardener_shootSpecProviderControlPlaneConfigGcp": {
+            "properties": {
+                "zone": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "zone"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfig:gardener_shootSpecProviderInfrastructureConfig": {
+            "properties": {
+                "aws": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAws:gardener_shootSpecProviderInfrastructureConfigAws",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "azure": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAzure:gardener_shootSpecProviderInfrastructureConfigAzure",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "gcp": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigGcp:gardener_shootSpecProviderInfrastructureConfigGcp",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAws:gardener_shootSpecProviderInfrastructureConfigAws": {
+            "properties": {
+                "enableecraccess": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAwsNetwork:gardener_shootSpecProviderInfrastructureConfigAwsNetwork"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "networks"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAwsNetwork:gardener_shootSpecProviderInfrastructureConfigAwsNetwork": {
+            "properties": {
+                "vpc": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAwsNetworkVpc:gardener_shootSpecProviderInfrastructureConfigAwsNetworkVpc",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zones": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAwsNetworkZone:gardener_shootSpecProviderInfrastructureConfigAwsNetworkZone"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "vpc"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAwsNetworkVpc:gardener_shootSpecProviderInfrastructureConfigAwsNetworkVpc": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "id": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAwsNetworkZone:gardener_shootSpecProviderInfrastructureConfigAwsNetworkZone": {
+            "properties": {
+                "internal": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "public": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "workers": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAzure:gardener_shootSpecProviderInfrastructureConfigAzure": {
+            "properties": {
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAzureNetwork:gardener_shootSpecProviderInfrastructureConfigAzureNetwork"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zoned": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "networks"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAzureNetwork:gardener_shootSpecProviderInfrastructureConfigAzureNetwork": {
+            "properties": {
+                "serviceEndpoints": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vnet": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigAzureNetworkVnet:gardener_shootSpecProviderInfrastructureConfigAzureNetworkVnet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "workers": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "vnet",
+                "workers"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigAzureNetworkVnet:gardener_shootSpecProviderInfrastructureConfigAzureNetworkVnet": {
+            "properties": {
+                "cidr": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "resourceGroup": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigGcp:gardener_shootSpecProviderInfrastructureConfigGcp": {
+            "properties": {
+                "networks": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetwork:gardener_shootSpecProviderInfrastructureConfigGcpNetwork"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "networks"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetwork:gardener_shootSpecProviderInfrastructureConfigGcpNetwork": {
+            "properties": {
+                "cloudNats": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkCloudNat:gardener_shootSpecProviderInfrastructureConfigGcpNetworkCloudNat"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "flowLogs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkFlowLog:gardener_shootSpecProviderInfrastructureConfigGcpNetworkFlowLog"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "internal": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "vpcs": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpc:gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpc"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "workers": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "workers"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkCloudNat:gardener_shootSpecProviderInfrastructureConfigGcpNetworkCloudNat": {
+            "properties": {
+                "minPortsPerVm": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkFlowLog:gardener_shootSpecProviderInfrastructureConfigGcpNetworkFlowLog": {
+            "properties": {
+                "aggregationInterval": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "flowSampling": {
+                    "type": "number",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "metadata": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpc:gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpc": {
+            "properties": {
+                "cloudRouters": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpcCloudRouter:gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpcCloudRouter"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpcCloudRouter:gardener_shootSpecProviderInfrastructureConfigGcpNetworkVpcCloudRouter": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderWorker:gardener_shootSpecProviderWorker": {
+            "properties": {
+                "annotations": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cabundle": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "kubernetes": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorkerKubernete:gardener_shootSpecProviderWorkerKubernete"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "labels": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "$ref": "pulumi.json#/Any"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "machine": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorkerMachine:gardener_shootSpecProviderWorkerMachine",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maxSurge": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maxUnavailable": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "maximum": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "minimum": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "taints": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorkerTaint:gardener_shootSpecProviderWorkerTaint"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "volume": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorkerVolume:gardener_shootSpecProviderWorkerVolume",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "zones": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "machine",
+                "maximum",
+                "minimum",
+                "name",
+                "volume"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderWorkerKubernete:gardener_shootSpecProviderWorkerKubernete": {
+            "properties": {
+                "kubelet": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorkerKuberneteKubelet:gardener_shootSpecProviderWorkerKuberneteKubelet",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderWorkerKuberneteKubelet:gardener_shootSpecProviderWorkerKuberneteKubelet": {
+            "properties": {
+                "cpuCfsQuota": {
+                    "type": "boolean",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "cpuManagerPolicy": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "podPidsLimit": {
+                    "type": "integer",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object"
+        },
+        "gardener:index/gardener_shootSpecProviderWorkerMachine:gardener_shootSpecProviderWorkerMachine": {
+            "properties": {
+                "image": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpecProviderWorkerMachineImage:gardener_shootSpecProviderWorkerMachineImage",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "type"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderWorkerMachineImage:gardener_shootSpecProviderWorkerMachineImage": {
+            "properties": {
+                "name": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "version": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "name",
+                "version"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderWorkerTaint:gardener_shootSpecProviderWorkerTaint": {
+            "properties": {
+                "effect": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "key": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "value": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "effect",
+                "key",
+                "value"
+            ]
+        },
+        "gardener:index/gardener_shootSpecProviderWorkerVolume:gardener_shootSpecProviderWorkerVolume": {
+            "properties": {
+                "size": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                },
+                "type": {
+                    "type": "string",
+                    "language": {
+                        "python": {
+                            "mapCase": false
+                        }
+                    }
+                }
+            },
+            "type": "object",
+            "required": [
+                "size",
+                "type"
+            ]
+        }
+    },
+    "provider": {
+        "description": "The provider type for the gardener package. By default, resources use package-wide configuration\nsettings, however an explicit `Provider` instance may be created and passed during resource\nconstruction to achieve fine-grained programmatic control over provider settings. See the\n[documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.\n",
+        "properties": {
+            "kubeFile": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "kubeFile"
+        ],
+        "inputProperties": {
+            "kubeFile": {
+                "type": "string"
+            }
+        },
+        "requiredInputs": [
+            "kubeFile"
+        ]
+    },
+    "resources": {
+        "gardener:index/gardener_shoot:gardener_shoot": {
+            "properties": {
+                "metadata": {
+                    "$ref": "#/types/gardener:index/gardener_shootMetadata:gardener_shootMetadata",
+                    "description": "Standard shoot's metadata. More info:\nhttps://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#metadata\n"
+                },
+                "spec": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpec:gardener_shootSpec",
+                    "description": "ShootSpec is the specification of a Shoot. (see\nhttps://github.com/gardener/gardener/blob/master/pkg/apis/garden/v1beta1/types.go#L609)\n"
+                }
+            },
+            "required": [
+                "metadata",
+                "spec"
+            ],
+            "inputProperties": {
+                "metadata": {
+                    "$ref": "#/types/gardener:index/gardener_shootMetadata:gardener_shootMetadata",
+                    "description": "Standard shoot's metadata. More info:\nhttps://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#metadata\n"
+                },
+                "spec": {
+                    "$ref": "#/types/gardener:index/gardener_shootSpec:gardener_shootSpec",
+                    "description": "ShootSpec is the specification of a Shoot. (see\nhttps://github.com/gardener/gardener/blob/master/pkg/apis/garden/v1beta1/types.go#L609)\n"
+                }
+            },
+            "requiredInputs": [
+                "metadata",
+                "spec"
+            ],
+            "stateInputs": {
+                "description": "Input properties used for looking up and filtering gardener_shoot resources.\n",
+                "properties": {
+                    "metadata": {
+                        "$ref": "#/types/gardener:index/gardener_shootMetadata:gardener_shootMetadata",
+                        "description": "Standard shoot's metadata. More info:\nhttps://github.com/kubernetes/community/blob/master/contributors/devel/api-conventions.md#metadata\n"
+                    },
+                    "spec": {
+                        "$ref": "#/types/gardener:index/gardener_shootSpec:gardener_shootSpec",
+                        "description": "ShootSpec is the specification of a Shoot. (see\nhttps://github.com/gardener/gardener/blob/master/pkg/apis/garden/v1beta1/types.go#L609)\n"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "language": {
+        "csharp": {
+            "compatibility": "tfbridge20",
+            "namespaces": null,
+            "packageReferences": {
+                "Pulumi": "3.*",
+                "System.Collections.Immutable": "1.6.0"
+            }
+        },
+        "go": {
+            "generateResourceContainerTypes": true,
+            "importBasePath": "github.com/pulumi/pulumi-gardener/sdk/go/gardener"
+        },
+        "nodejs": {
+            "compatibility": "tfbridge20",
+            "dependencies": {
+                "@pulumi/pulumi": "^3.0.0"
+            },
+            "devDependencies": {
+                "@types/mime": "^2.0.0",
+                "@types/node": "^10.0.0"
+            },
+            "disableUnionOutputTypes": true,
+            "packageDescription": "A Pulumi package for creating and managing gardener cloud resources.",
+            "packageName": "",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-gardener)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-gardener` repo](https://github.com/pulumi/pulumi-gardener/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-gardener` repo](https://github.com/terraform-providers/terraform-provider-gardener/issues).",
+            "typescriptVersion": ""
+        },
+        "python": {
+            "compatibility": "tfbridge20",
+            "readme": "\u003e This provider is a derived work of the [Terraform Provider](https://github.com/terraform-providers/terraform-provider-gardener)\n\u003e distributed under [MPL 2.0](https://www.mozilla.org/en-US/MPL/2.0/). If you encounter a bug or missing feature,\n\u003e first check the [`pulumi/pulumi-gardener` repo](https://github.com/pulumi/pulumi-gardener/issues); however, if that doesn't turn up anything,\n\u003e please consult the source [`terraform-providers/terraform-provider-gardener` repo](https://github.com/terraform-providers/terraform-provider-gardener/issues).",
+            "requires": {
+                "pulumi": "\u003e=3.0.0,\u003c4.0.0"
+            }
+        }
+    }
+}
